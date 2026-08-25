@@ -1,13 +1,12 @@
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerInputReader inputReader;
     [SerializeField] private float moveSpeed = 6f; // default 6f
 
-    private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
     private Vector2 facingScale = Vector2.one;
 
     private bool isMoving;
@@ -15,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
