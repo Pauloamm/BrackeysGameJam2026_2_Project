@@ -16,7 +16,7 @@ MonoBehaviour:
   cooldownDuration: 4
   projectileSpeed: 2
   overchargeStacks: 0
-  pelletCount: 2
+  pelletCount: 4
   coneAngle: 40
   pierceCount: 0
   range: 0

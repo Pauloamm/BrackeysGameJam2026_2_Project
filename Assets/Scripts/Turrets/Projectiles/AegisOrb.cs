@@ -18,17 +18,13 @@ public class AegisOrb : ProjectileBase
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        IShieldable shieldable = other.GetComponentInChildren<IShieldable>();
+
+        if (shieldable != null)
         {
-            // TODO: grant powerValue shield to the player (interception steals it) once a shield interface exists
-            Destroy(gameObject);
-            return;
+            shieldable.ApplyShield(Mathf.RoundToInt(powerValue));
         }
 
-        if (other.CompareTag("Enemy"))
-        {
-            // TODO: grant powerValue shield to the enemy once a shield interface exists
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

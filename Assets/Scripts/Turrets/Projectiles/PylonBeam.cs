@@ -29,13 +29,15 @@ public class PylonBeam : ProjectileBase
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        IDamageable damageable = other.GetComponentInChildren<IDamageable>();
+
+        if (damageable == null) return;
 
         tickTimer -= Time.fixedDeltaTime;
 
         if (tickTimer > 0f) return;
 
-        // TODO: deal powerValue damage to the player once a health/damage interface exists
+        damageable.TakeDamage(Mathf.RoundToInt(powerValue));
         tickTimer = damageTickInterval;
     }
 }

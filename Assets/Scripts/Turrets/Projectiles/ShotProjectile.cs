@@ -22,16 +22,15 @@ public class ShotProjectile : ProjectileBase
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        IDamageable damageable = other.GetComponentInChildren<IDamageable>();
+
+        if (damageable != null)
         {
-            // TODO: deal powerValue damage to the player once a health/damage interface exists
-            Destroy(gameObject);
-            return;
+            damageable.TakeDamage(Mathf.RoundToInt(powerValue));
         }
 
         if (pierceRemaining > 0)
         {
-            // TODO: deal powerValue damage to the enemy once a health/damage interface exists
             pierceRemaining--;
             return;
         }
