@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public enum EnemyState
 {
@@ -15,6 +16,8 @@ public abstract class EnemyBase<TStats> : MonoBehaviour where TStats : EnemyBase
     protected TStats currentStats;
     protected Transform target;
     protected EnemyState currentState = EnemyState.Seeking;
+
+    public event Action OnEnemyDeath;
 
     protected virtual void Awake()
     {
@@ -49,6 +52,7 @@ public abstract class EnemyBase<TStats> : MonoBehaviour where TStats : EnemyBase
     protected virtual void Die()
     {
         currentState = EnemyState.Dead;
+        OnEnemyDeath?.Invoke();
         Destroy(gameObject);
     }
 }

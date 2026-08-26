@@ -5,6 +5,16 @@ public class ShooterEnemy : EnemyBase<ShooterStats>
     [SerializeField] private EnemyMovementBehaviour movementBehaviour;
     [SerializeField] private EnemyShootingBehaviour shootingBehaviour;
 
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        Collider2D[] ownColliders = GetComponentsInChildren<Collider2D>();
+        shootingBehaviour.SetCollidersToIgnore(ownColliders);
+    }
+
+
     public override void SetTarget(Transform newTarget)
     {
         base.SetTarget(newTarget);

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce5fb94b06301947b03d458968c1ef0, type: 3}
+  m_Name: SkyCallerWaveScaling
+  m_EditorClassIdentifier: Assembly-CSharp::SkyCallerWaveScaling
+  healthIncrementAmount: 1
+  wavesPerHealthIncrement: 1
+  contactDamageIncrementAmount: 1
+  wavesPerContactDamageIncrement: 2
+  moveSpeedIncrementAmount: 0
+  wavesPerMoveSpeedIncrement: 1
+  maxConcurrent: 7
+  stopDistanceIncrementAmount: 0
+  wavesPerStopDistanceIncrement: 1
+  aoeDamageIncrementAmount: 1
+  wavesPerAoeDamageIncrement: 2
+  telegraphDurationIncrementAmount: 0
+  wavesPerTelegraphDurationIncrement: 1
+  aoeRadiusIncrementAmount: 0
+  wavesPerAoeRadiusIncrement: 1
+  fireCooldownPercentPerWave: 0.1
+  minFireCooldown: 0.5

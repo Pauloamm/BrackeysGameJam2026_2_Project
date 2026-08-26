@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyShotProjectile : ProjectileBase
 {
+
+    [SerializeField] Collider2D ownCollider;
     private Vector2 direction;
 
     public void Launch(Vector2 launchDirection, float launchSpeed, int damage)
@@ -9,6 +11,14 @@ public class EnemyShotProjectile : ProjectileBase
         direction = launchDirection;
         speed = launchSpeed;
         powerValue = damage;
+    }
+
+    public void SetCollidersToIgnore(Collider2D[] colliders)
+    {
+        foreach (Collider2D colliderToIgnore in colliders)
+        {
+            Physics2D.IgnoreCollision(ownCollider, colliderToIgnore);
+        }
     }
 
     protected override void Move()

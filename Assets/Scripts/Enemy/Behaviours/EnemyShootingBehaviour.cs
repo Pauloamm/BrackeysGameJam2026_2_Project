@@ -9,12 +9,17 @@ public class EnemyShootingBehaviour : MonoBehaviour
     private int projectileDamage;
     private float cooldownDuration;
     private float cooldownTimer;
+    private Collider2D[] collidersToIgnore;
+
 
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
     }
-
+    public void SetCollidersToIgnore(Collider2D[] colliders)
+    {
+        collidersToIgnore = colliders;
+    }
     public void SetProjectileSpeed(float speed)
     {
         projectileSpeed = speed;
@@ -47,6 +52,7 @@ public class EnemyShootingBehaviour : MonoBehaviour
     {
         Vector2 direction = ((Vector2)target.position - (Vector2)transform.position).normalized;
         EnemyShotProjectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        projectile.SetCollidersToIgnore(collidersToIgnore);
         projectile.Launch(direction, projectileSpeed, projectileDamage);
 
         cooldownTimer = cooldownDuration;

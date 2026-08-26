@@ -5,7 +5,7 @@ public abstract class ProjectileBase : MonoBehaviour
     protected float powerValue;
     protected float speed;
 
-    private void Update()
+    virtual protected void Update()
     {
         Move();
     }

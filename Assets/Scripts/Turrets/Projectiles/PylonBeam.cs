@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class PylonBeam : ProjectileBase
 {
     [SerializeField] private float damageTickInterval = 0.5f;
 
-    private float tickTimer;
+    private Dictionary<IDamageable, float> tickTimers = new Dictionary<IDamageable, float>();
     private float rotatedDegrees;
 
     public void Launch(float damage, float rotationSpeed, float length)
@@ -12,7 +14,16 @@ public class PylonBeam : ProjectileBase
         powerValue = damage;
         speed = rotationSpeed;
 
-        transform.localScale = new Vector3(transform.localScale.x,length, transform.localScale.z);
+        transform.localScale = new Vector3(transform.localScale.x, length, transform.localScale.z);
+    }
+
+    override protected void Update()
+    {
+        base.Update();
+        
+        foreach (IDamageable key in tickTimers.Keys.ToList())
+            tickTimers[key] -= Time.deltaTime;
+        
     }
 
     protected override void Move()
@@ -33,11 +44,22 @@ public class PylonBeam : ProjectileBase
 
         if (damageable == null) return;
 
-        tickTimer -= Time.fixedDeltaTime;
+        if (!tickTimers.ContainsKey(damageable))
+            tickTimers[damageable] = 0f;
+        
 
-        if (tickTimer > 0f) return;
+        if (tickTimers[damageable] > 0f) return;
 
         damageable.TakeDamage(Mathf.RoundToInt(powerValue));
-        tickTimer = damageTickInterval;
+        tickTimers[damageable] = damageTickInterval;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        IDamageable damageable = other.GetComponentInChildren<IDamageable>();
+
+        if (damageable == null) return;
+
+        tickTimers.Remove(damageable);
     }
 }
