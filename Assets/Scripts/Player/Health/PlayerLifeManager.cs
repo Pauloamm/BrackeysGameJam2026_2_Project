@@ -12,32 +12,48 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
 
     public event Action OnDeath;
     public event Action OnDamaged;
-    public event Action<int> OnHealthChanged;
+    public event Action<int> OnCurrentHealthValueChanged;
+    public event Action<int> OnMaxHealthValueChanged;
+
+    public int CurrentHealth => currentHealth;
+    public int MaxHealth => maxHealth;
 
     private void Awake()
     {
         currentHealth = maxHealth;
-        OnHealthChanged?.Invoke(currentHealth);
+        OnMaxHealthValueChanged?.Invoke(maxHealth);
+        OnCurrentHealthValueChanged?.Invoke(currentHealth);
     }
+
     public void SetMaxHealth(int newMaxHealth, bool healToFull)
     {
         maxHealth = newMaxHealth;
+        OnMaxHealthValueChanged?.Invoke(maxHealth);
 
         if (healToFull)
         {
-            currentHealth = maxHealth;
-            OnHealthChanged?.Invoke(currentHealth);
+            HealToFull();
         }
     }
+
+    public void HealToFull()
+    {
+        currentHealth = maxHealth;
+        OnCurrentHealthValueChanged?.Invoke(currentHealth);
+    }
+
     public void TakeDamage(int damage)
     {
         if (isInvincible || currentHealth <= 0) return;
 
-        if (shieldManager.TryConsumeShield()) return;
-        
+        if (shieldManager.TryConsumeShield())
+        {
+            OnDamaged?.Invoke();
+            return;
+        }
 
         currentHealth -= damage;
-        OnHealthChanged?.Invoke(currentHealth);
+        OnCurrentHealthValueChanged?.Invoke(currentHealth);
         OnDamaged?.Invoke();
 
         if (currentHealth <= 0)

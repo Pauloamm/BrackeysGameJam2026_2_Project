@@ -14,6 +14,10 @@ public class WaveManager : MonoBehaviour
     private int totalEnemiesKilled;
     private float runTimer;
 
+    public event Action<int> OnCurrentWaveChanged;
+    public event Action<float> OnRunTimerChanged;
+    public event Action<int> OnEnemiesKilledChanged;
+
     public event Action OnWaveCleared;
 
     private void Start()
@@ -33,11 +37,13 @@ public class WaveManager : MonoBehaviour
     private void Update()
     {
         runTimer += Time.deltaTime;
+        OnRunTimerChanged?.Invoke(runTimer);
     }
 
     private void StartNextWave()
     {
         currentWave++;
+        OnCurrentWaveChanged?.Invoke(currentWave);
 
         (int rusherCount, int shooterCount, int skyCallerCount) = GetWaveComposition(currentWave);
         enemiesRemainingThisWave = rusherCount + shooterCount + skyCallerCount;
@@ -96,6 +102,7 @@ public class WaveManager : MonoBehaviour
     {
         enemiesRemainingThisWave--;
         totalEnemiesKilled++;
+        OnEnemiesKilledChanged?.Invoke(totalEnemiesKilled);
 
         if (enemiesRemainingThisWave <= 0)
         {

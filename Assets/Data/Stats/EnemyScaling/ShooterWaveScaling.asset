@@ -15,10 +15,12 @@ MonoBehaviour:
   healthIncrementAmount: 1
   wavesPerHealthIncrement: 1
   contactDamageIncrementAmount: 1
-  wavesPerContactDamageIncrement: 2
+  wavesPerContactDamageIncrement: 4
   moveSpeedIncrementAmount: 0
   wavesPerMoveSpeedIncrement: 1
   maxConcurrent: 7
+  stopDistanceIncrementAmount: 0
+  wavesPerStopDistanceIncrement: 1
   projectileDamageIncrementAmount: 1
   wavesPerProjectileDamageIncrement: 1
   projectileSpeedIncrementAmount: 0.1
