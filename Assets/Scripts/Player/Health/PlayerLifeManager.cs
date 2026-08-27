@@ -5,6 +5,7 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
 {
     [Header("Health")]
     [SerializeField] private int maxHealth = 5;
+    [SerializeField] private ShieldManager shieldManager;
     private int currentHealth;
 
     private bool isInvincible;
@@ -18,10 +19,22 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth);
     }
+    public void SetMaxHealth(int newMaxHealth, bool healToFull)
+    {
+        maxHealth = newMaxHealth;
 
+        if (healToFull)
+        {
+            currentHealth = maxHealth;
+            OnHealthChanged?.Invoke(currentHealth);
+        }
+    }
     public void TakeDamage(int damage)
     {
         if (isInvincible || currentHealth <= 0) return;
+
+        if (shieldManager.TryConsumeShield()) return;
+        
 
         currentHealth -= damage;
         OnHealthChanged?.Invoke(currentHealth);

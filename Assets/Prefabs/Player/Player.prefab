@@ -53,6 +53,99 @@ MonoBehaviour:
   selectShotgunActionRef: {fileID: 1718832324205712557, guid: b6104f69901cf164b9e18bb28bcf2e93, type: 3}
   selectPylonActionRef: {fileID: 4780992362113878607, guid: b6104f69901cf164b9e18bb28bcf2e93, type: 3}
   selectAegisActionRef: {fileID: -4639554920330680036, guid: b6104f69901cf164b9e18bb28bcf2e93, type: 3}
+--- !u!1 &792122438764984825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2972358427533814515}
+  - component: {fileID: 5917202761608406797}
+  m_Layer: 0
+  m_Name: PlayerStatsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2972358427533814515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792122438764984825}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4434408149251247110}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5917202761608406797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792122438764984825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defb2f688b526534ab4e099aae985530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatsManager
+  statsTemplate: {fileID: 11400000, guid: c3a14cbb3c4a1d046adca6fee9096946, type: 2}
+  playerMovement: {fileID: 6439038340838666570}
+  playerLifeManager: {fileID: 8110631705270872874}
+  shieldManager: {fileID: 0}
+--- !u!1 &2181598235310169518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3869626762113136636}
+  - component: {fileID: 6393459638379583852}
+  m_Layer: 0
+  m_Name: PlayerShieldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3869626762113136636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181598235310169518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4434408149251247110}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6393459638379583852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181598235310169518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf2278f79c54c644841350bca6e3012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShieldManager
+  maxShields: 1
 --- !u!1 &3182000578955735750
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,12 +505,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2051688168418873106}
+  - {fileID: 2972358427533814515}
   - {fileID: 3402624061309902732}
   - {fileID: 7120603613139132211}
-  - {fileID: 2529358220732557888}
   - {fileID: 4082449844959712495}
+  - {fileID: 3869626762113136636}
   - {fileID: 2770411139783308070}
+  - {fileID: 2529358220732557888}
+  - {fileID: 2051688168418873106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7601595787705029297
@@ -695,4 +790,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07da171e27a3a8546b55b4ff390c3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLifeManager
-  maxHealth: 5
+  maxHealth: 6
+  shieldManager: {fileID: 6393459638379583852}

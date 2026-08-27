@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving;
     public event Action<bool> OnMovementStateChanged;
 
-    private void Awake()
+    public void SetMoveSpeed(float speed)
     {
+        moveSpeed = speed;
     }
 
     private void FixedUpdate()

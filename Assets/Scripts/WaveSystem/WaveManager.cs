@@ -7,6 +7,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private RusherSpawner rusherSpawner;
     [SerializeField] private ShooterSpawner shooterSpawner;
     [SerializeField] private SkyCallerSpawner skyCallerSpawner;
+    [SerializeField] private CardSelectionManager cardSelectionManager;
 
     private int currentWave;
     private int enemiesRemainingThisWave;
@@ -24,6 +25,7 @@ public class WaveManager : MonoBehaviour
         rusherSpawner.OnEnemyKilled += HandleEnemyKilled;
         shooterSpawner.OnEnemyKilled += HandleEnemyKilled;
         skyCallerSpawner.OnEnemyKilled += HandleEnemyKilled;
+        cardSelectionManager.OnSelectionEnded += HandleSelectionEnded;
 
         StartNextWave();
     }
@@ -98,7 +100,16 @@ public class WaveManager : MonoBehaviour
         if (enemiesRemainingThisWave <= 0)
         {
             OnWaveCleared?.Invoke();
-            StartNextWave();
         }
+    }
+
+    private void HandleSelectionEnded()
+    {
+        StartNextWave();
+    }
+
+    private void OnDestroy()
+    {
+        cardSelectionManager.OnSelectionEnded -= HandleSelectionEnded;
     }
 }
