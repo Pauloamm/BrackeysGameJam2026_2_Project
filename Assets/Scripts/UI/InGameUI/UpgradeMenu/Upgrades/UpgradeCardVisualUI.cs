@@ -8,6 +8,7 @@ public class UpgradeCardVisualUI : MonoBehaviour
     [SerializeField] private TMP_Text sourceLabelText;
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text descriptionText;
+    [SerializeField] private Image iconImage;
     [SerializeField] private Button selectButton;
 
     private UpgradeCard boundCard;
@@ -25,6 +26,7 @@ public class UpgradeCardVisualUI : MonoBehaviour
         sourceLabelText.text = card.SourceLabel;
         titleText.text = card.Title;
         descriptionText.text = card.Description;
+        iconImage.sprite = card.Icon;
     }
 
     private void HandleClicked()

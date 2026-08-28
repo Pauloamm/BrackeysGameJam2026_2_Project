@@ -4,6 +4,7 @@ using UnityEngine;
 public class AegisCardPoolCatalog : CardPoolCatalogBase
 {
     [SerializeField] private AegisManager manager;
+    [SerializeField] private Sprite icon;
 
     [SerializeField] private float shieldStrengthAmount = 1f;
     [SerializeField] private float fireRatePercentage = 0.1f;
@@ -15,16 +16,16 @@ public class AegisCardPoolCatalog : CardPoolCatalogBase
     {
         return new List<UpgradeCard>
         {
-            new UpgradeCard("Aegis", "Shield strength up", $"+{shieldStrengthAmount} shield strength",
+            new UpgradeCard("Aegis", "Shield strength up", $"+{shieldStrengthAmount} shield strength", icon,
                 () => manager.AddShieldStrength(shieldStrengthAmount)),
-            new UpgradeCard("Aegis", "Cooldown down", $"+{fireRatePercentage:P0} fire rate",
+            new UpgradeCard("Aegis", "Cooldown down", $"+{fireRatePercentage:P0} fire rate", icon,
                 () => manager.AddFireRate(fireRatePercentage)),
-            new UpgradeCard("Aegis", "Orb speed down", "Easier to intercept, more warning for the enemy",
+            new UpgradeCard("Aegis", "Orb speed down", "Easier to intercept, more warning for the enemy", icon,
                 () => manager.AddOrbSpeed(orbSpeedDecreaseAmount)),
-            new UpgradeCard("Aegis", "+1 max Aegis deployed", "Deploy one more Aegis",
+            new UpgradeCard("Aegis", "+1 max Aegis deployed", "Deploy one more Aegis", icon,
                 () => manager.AddCap(capAmount)),
-            new UpgradeCard("Aegis", "Overcharge", "Bigger shield granted (and stolen)",
-                () => manager.AddOverchargeStack(overchargeAmount)),
+            //new UpgradeCard("Aegis", "Overcharge", "Bigger shield granted (and stolen)", icon,
+            //    () => manager.AddOverchargeStack(overchargeAmount)),
         };
     }
 }

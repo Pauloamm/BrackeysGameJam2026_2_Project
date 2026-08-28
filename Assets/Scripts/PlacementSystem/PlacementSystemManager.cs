@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class PlacementSystemManager : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class PlacementSystemManager : MonoBehaviour
     private bool isValidPlacement;
     private Vector3 currentWorldPosition;
     private ITurretSpawner currentManager;
+
+    public event Action OnCannonPlacementActivated;
+    public event Action OnShotgunPlacementActivated;
+    public event Action OnPylonPlacementActivated;
+    public event Action OnAegisPlacementActivated;
+    public event Action OnPlacementDeactivated;
 
     private void Awake()
     {
@@ -59,21 +66,25 @@ public class PlacementSystemManager : MonoBehaviour
     private void HandleSelectCannonPressed()
     {
         Activate(cannonManager);
+        OnCannonPlacementActivated?.Invoke();
     }
 
     private void HandleSelectShotgunPressed()
     {
         Activate(shotgunManager);
+        OnShotgunPlacementActivated?.Invoke();
     }
 
     private void HandleSelectPylonPressed()
     {
         Activate(pylonManager);
+        OnPylonPlacementActivated?.Invoke();
     }
 
     private void HandleSelectAegisPressed()
     {
         Activate(aegisManager);
+        OnAegisPlacementActivated?.Invoke();
     }
 
     private void HandleConfirmPlacementPressed()
@@ -103,6 +114,7 @@ public class PlacementSystemManager : MonoBehaviour
         isActive = false;
         currentManager = null;
         indicatorRenderer.enabled = false;
+        OnPlacementDeactivated?.Invoke();
     }
 
     private Vector3 GetMouseWorldPosition()

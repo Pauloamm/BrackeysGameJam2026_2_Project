@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShooterSpawner
   minSpawnDistance: 3
   maxSpawnDistance: 4
+  telegraphPrefab: {fileID: 8603486174246190577, guid: ed04126990f01f34ea3d2ae3854d681f, type: 3}
+  maxPositionRerollAttempts: 5
   enemyPrefab: {fileID: 7038965348879930284, guid: c84ed957be4002448b3cd6452fe400c6, type: 3}
   statsTemplate: {fileID: 11400000, guid: 6b6b79f931f34b84780ff1dbca5041ee, type: 2}
   scalingTemplate: {fileID: 11400000, guid: a3c04d6dc308ac74f80367216f50a372, type: 2}

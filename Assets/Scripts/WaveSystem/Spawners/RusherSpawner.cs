@@ -25,17 +25,12 @@ public class RusherSpawner : BaseSpawner
         return scalingTemplate.GetMaxConcurrent();
     }
 
-    protected override void SpawnOne()
+    protected override void SpawnEnemyAt(Vector2 position)
     {
-        Vector2 spawnPosition = EnemySpawnPositionUtil.GetRandomPositionAroundTarget(target, minSpawnDistance, maxSpawnDistance);
-
-        RusherEnemy enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        RusherEnemy enemy = Instantiate(enemyPrefab, position, Quaternion.identity);
         enemy.SetTarget(target);
         enemy.ApplyStats(currentStats);
         enemy.OnEnemyDeath += HandleEnemyDied;
-
-        spawnedSoFar++;
-        currentlyAlive++;
     }
 
     [ContextMenu("Spawn Test Enemy")]

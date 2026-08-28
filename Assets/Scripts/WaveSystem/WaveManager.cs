@@ -9,6 +9,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private SkyCallerSpawner skyCallerSpawner;
     [SerializeField] private CardSelectionManager cardSelectionManager;
 
+    private SpawnPositionRegistry spawnPositionRegistry;
+
     private int currentWave;
     private int enemiesRemainingThisWave;
     private int totalEnemiesKilled;
@@ -22,9 +24,15 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        spawnPositionRegistry = new SpawnPositionRegistry();
+
         rusherSpawner.SetTarget(player);
         shooterSpawner.SetTarget(player);
         skyCallerSpawner.SetTarget(player);
+
+        rusherSpawner.SetSpawnPositionRegistry(spawnPositionRegistry);
+        shooterSpawner.SetSpawnPositionRegistry(spawnPositionRegistry);
+        skyCallerSpawner.SetSpawnPositionRegistry(spawnPositionRegistry);
 
         rusherSpawner.OnEnemyKilled += HandleEnemyKilled;
         shooterSpawner.OnEnemyKilled += HandleEnemyKilled;

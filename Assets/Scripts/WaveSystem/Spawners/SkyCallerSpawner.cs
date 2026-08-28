@@ -30,17 +30,12 @@ public class SkyCallerSpawner : BaseSpawner
         return scalingTemplate.GetMaxConcurrent();
     }
 
-    protected override void SpawnOne()
+    protected override void SpawnEnemyAt(Vector2 position)
     {
-        Vector2 spawnPosition = EnemySpawnPositionUtil.GetRandomPositionAroundTarget(target, minSpawnDistance, maxSpawnDistance);
-
-        SkyCallerEnemy enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        SkyCallerEnemy enemy = Instantiate(enemyPrefab, position, Quaternion.identity);
         enemy.SetTarget(target);
         enemy.ApplyStats(currentStats);
         enemy.OnEnemyDeath += HandleEnemyDied;
-
-        spawnedSoFar++;
-        currentlyAlive++;
     }
 
     [ContextMenu("Spawn Test Enemy")]

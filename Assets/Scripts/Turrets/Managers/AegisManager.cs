@@ -30,6 +30,7 @@ public class AegisManager : TurretManagerBase<AegisStats, AegisTurret>
     public void AddCap(int amount = 1)
     {
         capBonus += amount;
+        NotifyDeployedCountChanged();
     }
 
     public void AddOverchargeStack(int amount = 1)

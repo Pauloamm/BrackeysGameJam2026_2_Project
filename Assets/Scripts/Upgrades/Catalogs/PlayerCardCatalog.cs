@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerCardCatalog : CardPoolCatalogBase
 {
     [SerializeField] private PlayerStatsManager manager;
+    [SerializeField] private Sprite icon;
 
     [SerializeField] private int maxHealthAmount = 1;
     [SerializeField] private float moveSpeedAmount = 0.5f;
@@ -13,11 +14,11 @@ public class PlayerCardCatalog : CardPoolCatalogBase
     {
         return new List<UpgradeCard>
         {
-            new UpgradeCard("Character", "Max HP up", $"+{maxHealthAmount} max HP",
+            new UpgradeCard("Character", "Max HP up", $"+{maxHealthAmount} max HP", icon,
                 () => manager.AddMaxHealth(maxHealthAmount)),
-            new UpgradeCard("Character", "Move speed up", $"+{moveSpeedAmount} move speed",
+            new UpgradeCard("Character", "Move speed up", $"+{moveSpeedAmount} move speed", icon,
                 () => manager.AddMoveSpeed(moveSpeedAmount)),
-            new UpgradeCard("Character", "Max shields up", $"+{maxShieldsAmount} max shields",
+            new UpgradeCard("Character", "Max shields up", $"+{maxShieldsAmount} max shields", icon,
                 () => manager.AddMaxShields(maxShieldsAmount)),
         };
     }

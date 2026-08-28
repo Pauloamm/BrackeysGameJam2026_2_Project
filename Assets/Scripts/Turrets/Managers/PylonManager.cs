@@ -41,6 +41,7 @@ public class PylonManager : TurretManagerBase<PylonStats, PylonTurret>
     public void AddCap(int amount = 1)
     {
         capBonus += amount;
+        NotifyDeployedCountChanged();
     }
 
     public void AddOverchargeStack(int amount = 1)

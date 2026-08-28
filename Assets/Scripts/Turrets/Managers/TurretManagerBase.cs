@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public abstract class TurretManagerBase<TStats, TTurret> : MonoBehaviour, ITurre
     private readonly Queue<TTurret> activeTurrets = new Queue<TTurret>();
 
     public int CurrentCap => baseCap + capBonus;
+    public int CurrentDeployedCount => activeTurrets.Count;
+    public event Action<int, int> OnDeployedCountChanged;
 
     public TTurret SpawnTurret(Vector3 position, Quaternion rotation)
     {
@@ -26,6 +29,8 @@ public abstract class TurretManagerBase<TStats, TTurret> : MonoBehaviour, ITurre
         turret.SetTarget(targetReference);
         turret.ApplyStats(currentStats);
         activeTurrets.Enqueue(turret);
+
+        NotifyDeployedCountChanged();
 
         return turret;
     }
@@ -41,6 +46,11 @@ public abstract class TurretManagerBase<TStats, TTurret> : MonoBehaviour, ITurre
         {
             turret.ApplyStats(currentStats);
         }
+    }
+
+    protected void NotifyDeployedCountChanged()
+    {
+        OnDeployedCountChanged?.Invoke(activeTurrets.Count, CurrentCap);
     }
 
     private void DestroyOldestTurret()
