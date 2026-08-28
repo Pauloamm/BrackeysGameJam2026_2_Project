@@ -21,6 +21,7 @@ public class WaveManager : MonoBehaviour
     public event Action<int> OnEnemiesKilledChanged;
 
     public event Action OnWaveCleared;
+    public event Action OnWaveStarted;
 
     private void Start()
     {
@@ -52,6 +53,7 @@ public class WaveManager : MonoBehaviour
     {
         currentWave++;
         OnCurrentWaveChanged?.Invoke(currentWave);
+        OnWaveStarted?.Invoke();
 
         (int rusherCount, int shooterCount, int skyCallerCount) = GetWaveComposition(currentWave);
         enemiesRemainingThisWave = rusherCount + shooterCount + skyCallerCount;

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf707e7d2009e43478f68892e91bbf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AegisOrb
+  grabSfx: {fileID: 11400000, guid: 2d3503f71c5839d43a33b12950d1907b, type: 2}
 --- !u!61 &9107187046776329729
 BoxCollider2D:
   m_ObjectHideFlags: 0

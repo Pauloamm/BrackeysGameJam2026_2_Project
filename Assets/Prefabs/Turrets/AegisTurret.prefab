@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AegisTurret
   orbPrefab: {fileID: 1222861746294478610, guid: 0637e377593246f47b923ec3ee28b4a2, type: 3}
   firePoint: {fileID: 4131751602766764652}
+  shotSfx: {fileID: 11400000, guid: 072bd41b780be2a408795e6a281dc33e, type: 2}
 --- !u!58 &952390560030199699
 CircleCollider2D:
   m_ObjectHideFlags: 0

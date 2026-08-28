@@ -4,6 +4,7 @@ public class PylonTurret : TurretBase<PylonStats>
 {
     [SerializeField] private float overchargeLengthPerStack = 1f;
     [SerializeField] private PylonBeam beamPrefab;
+    [SerializeField] private PlayableSfxSettings sweepSfx;
 
     protected override void Fire()
     {
@@ -15,6 +16,8 @@ public class PylonTurret : TurretBase<PylonStats>
             PylonBeam beam = Instantiate(beamPrefab, transform.position, Quaternion.Euler(0f, 0f, anglePerBeam * i));
             beam.Launch(currentStats.damage, currentStats.projectileSpeed, effectiveBeamRange);
         }
+
+        AudioManager.Instance.Play3DClip(sweepSfx, transform.position);
     }
 
     protected override float GetCooldownDuration()

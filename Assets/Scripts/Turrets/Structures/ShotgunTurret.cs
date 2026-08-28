@@ -6,6 +6,7 @@ public class ShotgunTurret : TurretBase<ShotgunStats>
 
     [SerializeField] private ShotProjectile projectilePrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private PlayableSfxSettings fireSfx;
 
     protected override void Fire()
     {
@@ -26,6 +27,8 @@ public class ShotgunTurret : TurretBase<ShotgunStats>
             projectile.Launch(direction, currentStats.damage, currentStats.projectileSpeed, noBounceCount, currentStats.pierceCount);
             projectile.SetRange(currentStats.range);
         }
+
+        AudioManager.Instance.Play3DClip(fireSfx, firePoint.position);
     }
 
     protected override float GetCooldownDuration()

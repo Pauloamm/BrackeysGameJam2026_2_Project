@@ -107,3 +107,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PylonTurret
   overchargeLengthPerStack: 10
   beamPrefab: {fileID: -6375227852803882673, guid: c9e8d35e639191f44a1f76afc02e75b7, type: 3}
+  sweepSfx: {fileID: 11400000, guid: 69dc507379c88f6419ce1bd1eafbf055, type: 2}

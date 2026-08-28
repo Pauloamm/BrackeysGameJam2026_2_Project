@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AegisOrb : ProjectileBase
 {
+    [SerializeField] private PlayableSfxSettings grabSfx;
+
     private Vector2 direction;
 
     public void Launch(Vector2 direction, float shieldStrength, float orbSpeed)
@@ -23,6 +25,7 @@ public class AegisOrb : ProjectileBase
         if (shieldable != null)
         {
             shieldable.ApplyShield(Mathf.RoundToInt(powerValue));
+            AudioManager.Instance.Play3DClip(grabSfx, transform.position);
         }
 
         Destroy(gameObject);

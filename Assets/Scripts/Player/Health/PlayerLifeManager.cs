@@ -12,6 +12,7 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
 
     public event Action OnDeath;
     public event Action OnDamaged;
+    public event Action OnHealthLost;
     public event Action<int> OnCurrentHealthValueChanged;
     public event Action<int> OnMaxHealthValueChanged;
 
@@ -55,6 +56,7 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
         currentHealth -= damage;
         OnCurrentHealthValueChanged?.Invoke(currentHealth);
         OnDamaged?.Invoke();
+        OnHealthLost?.Invoke();
 
         if (currentHealth <= 0)
         {

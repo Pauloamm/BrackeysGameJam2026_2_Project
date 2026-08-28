@@ -4,6 +4,7 @@ public class AegisTurret : TurretBase<AegisStats>
 {
     [SerializeField] private AegisOrb orbPrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private PlayableSfxSettings shotSfx;
 
     protected override void Fire()
     {
@@ -13,6 +14,8 @@ public class AegisTurret : TurretBase<AegisStats>
 
         AegisOrb orb = Instantiate(orbPrefab, firePoint.position, Quaternion.identity);
         orb.Launch(direction, currentStats.damage, currentStats.projectileSpeed);
+
+        AudioManager.Instance.Play3DClip(shotSfx, firePoint.position);
     }
 
     protected override float GetCooldownDuration()

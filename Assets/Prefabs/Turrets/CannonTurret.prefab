@@ -139,3 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CannonTurret
   projectilePrefab: {fileID: 3146261868082846475, guid: 0c7ef4763102ae243a673bcba45f3ef4, type: 3}
   firePoint: {fileID: 1901910557112942922}
+  fireSfx: {fileID: 11400000, guid: e1e074f78b339fd46abd7adefe3e0d33, type: 2}
