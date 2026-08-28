@@ -16,6 +16,6 @@ MonoBehaviour:
   wavesPerHealthIncrement: 1
   contactDamageIncrementAmount: 1
   wavesPerContactDamageIncrement: 4
-  moveSpeedIncrementAmount: 0
-  wavesPerMoveSpeedIncrement: 1
+  moveSpeedIncrementAmount: 0.05
+  wavesPerMoveSpeedIncrement: 3
   maxConcurrent: 7
