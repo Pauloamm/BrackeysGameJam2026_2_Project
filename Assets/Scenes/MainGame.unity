@@ -1400,7 +1400,7 @@ MonoBehaviour:
   icon: {fileID: 8739601630369401465, guid: 8b2e02071f223b44d8c7be9d1e302a47, type: 3}
   shieldStrengthAmount: 1
   fireRatePercentage: 0.1
-  orbSpeedDecreaseAmount: 1
+  orbSpeedDecreaseAmount: 0.1
   capAmount: 1
   overchargeAmount: 1
 --- !u!1 &446327632

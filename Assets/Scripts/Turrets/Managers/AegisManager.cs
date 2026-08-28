@@ -23,7 +23,7 @@ public class AegisManager : TurretManagerBase<AegisStats, AegisTurret>
 
     public void AddOrbSpeed(float amount)
     {
-        currentStats.projectileSpeed -= amount;
+        currentStats.projectileSpeed -= currentStats.projectileSpeed * amount;
         PushStatsToActiveTurrets();
     }
 

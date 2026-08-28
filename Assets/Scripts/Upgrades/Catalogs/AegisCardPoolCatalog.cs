@@ -8,7 +8,7 @@ public class AegisCardPoolCatalog : CardPoolCatalogBase
 
     [SerializeField] private float shieldStrengthAmount = 1f;
     [SerializeField] private float fireRatePercentage = 0.1f;
-    [SerializeField] private float orbSpeedDecreaseAmount = 1f;
+    [SerializeField] private float orbSpeedDecreaseAmount = 0.1f;
     [SerializeField] private int capAmount = 1;
     [SerializeField] private int overchargeAmount = 1;
 
@@ -20,7 +20,7 @@ public class AegisCardPoolCatalog : CardPoolCatalogBase
                 () => manager.AddShieldStrength(shieldStrengthAmount)),
             new UpgradeCard("Aegis", "Cooldown down", $"+{fireRatePercentage:P0} fire rate", icon,
                 () => manager.AddFireRate(fireRatePercentage)),
-            new UpgradeCard("Aegis", "Orb speed down", "Easier to intercept, more warning for the enemy", icon,
+            new UpgradeCard("Aegis", "Orb speed down", $"Easier to catch by {orbSpeedDecreaseAmount:P0}", icon,
                 () => manager.AddOrbSpeed(orbSpeedDecreaseAmount)),
             new UpgradeCard("Aegis", "+1 max Aegis deployed", "Deploy one more Aegis", icon,
                 () => manager.AddCap(capAmount)),
