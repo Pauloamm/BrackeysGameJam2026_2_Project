@@ -12,6 +12,7 @@ public class CannonTurret : TurretBase<CannonStats>
 
         ShotProjectile projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         projectile.Launch(direction, currentStats.damage, currentStats.projectileSpeed, currentStats.bounceCount);
+        projectile.SetRange(currentStats.range);
     }
 
     protected override float GetCooldownDuration()

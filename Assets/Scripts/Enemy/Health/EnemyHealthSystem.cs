@@ -27,6 +27,8 @@ public class EnemyHealthSystem : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        if (currentHealth <= 0) return; // stops double firing death in same frame (bug)
+
         if (shieldManager.TryConsumeShield()) return;
 
         currentHealth -= damage;

@@ -6,7 +6,7 @@ public class ShotgunCardPoolCatalog : CardPoolCatalogBase
     [SerializeField] private ShotgunManager manager;
     [SerializeField] private Sprite icon;
 
-    [SerializeField] private float damageAmount = 2f;
+    [SerializeField] private float damageAmount = 1f;
     [SerializeField] private float fireRatePercentage = 0.1f;
     [SerializeField] private int pelletAmount = 1;
     [SerializeField] private float coneAngleAmount = 10f;

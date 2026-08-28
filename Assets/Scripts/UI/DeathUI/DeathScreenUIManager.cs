@@ -8,6 +8,7 @@ public class DeathScreenUIManager : MonoBehaviour
     [SerializeField] private PlayerLifeManager playerLifeManager;
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private GameObject deathScreenRoot;
+    [SerializeField] private GameObject inGameUIRoot;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button retryButton;
     [SerializeField] private string mainMenuSceneName = "MainMenu";
@@ -56,6 +57,7 @@ public class DeathScreenUIManager : MonoBehaviour
         enemiesKilledText.text = $"Enemies killed: {totalEnemiesKilled}";
 
         Time.timeScale = 0f;
+        inGameUIRoot.SetActive(false);
         deathScreenRoot.SetActive(true);
     }
 
@@ -77,14 +79,4 @@ public class DeathScreenUIManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    private void OnDestroy()
-    {
-        playerLifeManager.OnDeath -= HandleDeath;
-        waveManager.OnCurrentWaveChanged -= HandleCurrentWaveChanged;
-        waveManager.OnRunTimerChanged -= HandleRunTimerChanged;
-        waveManager.OnEnemiesKilledChanged -= HandleEnemiesKilledChanged;
-        mainMenuButton.onClick.RemoveListener(HandleMainMenuClicked);
-        retryButton.onClick.RemoveListener(HandleRetryClicked);
     }
-}

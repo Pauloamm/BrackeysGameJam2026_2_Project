@@ -4,4 +4,5 @@ using UnityEngine;
 public class CannonStats : TurretBaseStats
 {
     public int bounceCount;
+    public float range = 5f;
 }

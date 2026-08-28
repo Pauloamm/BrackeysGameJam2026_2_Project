@@ -24,6 +24,7 @@ public class ShotgunTurret : TurretBase<ShotgunStats>
 
             ShotProjectile projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             projectile.Launch(direction, currentStats.damage, currentStats.projectileSpeed, noBounceCount, currentStats.pierceCount);
+            projectile.SetRange(currentStats.range);
         }
     }
 

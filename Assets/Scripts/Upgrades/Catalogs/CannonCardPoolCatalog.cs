@@ -6,8 +6,8 @@ public class CannonCardPoolCatalog : CardPoolCatalogBase
     [SerializeField] private CannonManager manager;
     [SerializeField] private Sprite icon;
 
-    [SerializeField] private float damageAmount = 2f;
-    [SerializeField] private float fireRatePercentage = 0.1f;
+    [SerializeField] private float damageAmount = 1f;
+    [SerializeField] private float fireRatePercentage = 0.2f;
     [SerializeField] private float projectileSpeedAmount = 1f;
     [SerializeField] private int bounceAmount = 1;
     [SerializeField] private int capAmount = 1;

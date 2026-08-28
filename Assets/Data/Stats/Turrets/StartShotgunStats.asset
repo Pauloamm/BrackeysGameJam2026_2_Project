@@ -19,4 +19,4 @@ MonoBehaviour:
   pelletCount: 4
   coneAngle: 40
   pierceCount: 0
-  range: 0
+  range: 1

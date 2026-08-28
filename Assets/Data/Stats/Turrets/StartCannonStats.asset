@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CannonStats
   damage: 1
   cooldownDuration: 4
-  projectileSpeed: 0.7
+  projectileSpeed: 2
   overchargeStacks: 0
   bounceCount: 0
+  range: 9

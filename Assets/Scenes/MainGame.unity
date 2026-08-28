@@ -967,6 +967,7 @@ RectTransform:
   - {fileID: 1814914645}
   - {fileID: 1124646482}
   - {fileID: 312813538}
+  - {fileID: 1549137378}
   m_Father: {fileID: 1910450393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1968,7 +1969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShotgunCardPoolCatalog
   manager: {fileID: 1177841001}
   icon: {fileID: 6864090805350988587, guid: 98afa006199fe884986873fe881fbd00, type: 3}
-  damageAmount: 2
+  damageAmount: 1
   fireRatePercentage: 0.1
   pelletAmount: 1
   coneAngleAmount: 10
@@ -3579,6 +3580,7 @@ MonoBehaviour:
   playerLifeManager: {fileID: 8203845691632396393}
   waveManager: {fileID: 1209037961}
   deathScreenRoot: {fileID: 255880608}
+  inGameUIRoot: {fileID: 288963015}
   mainMenuButton: {fileID: 972276493}
   retryButton: {fileID: 191380077}
   mainMenuSceneName: MainMenu
@@ -3717,8 +3719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CannonCardPoolCatalog
   manager: {fileID: 1590160374}
   icon: {fileID: -5903211479865578277, guid: f80ee19d119890b4b985fe64ea6d5715, type: 3}
-  damageAmount: 2
-  fireRatePercentage: 0.1
+  damageAmount: 1
+  fireRatePercentage: 0.2
   projectileSpeedAmount: 1
   bounceAmount: 1
   capAmount: 1
@@ -4207,7 +4209,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549137377}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4216,11 +4218,11 @@ RectTransform:
   - {fileID: 1628891900}
   - {fileID: 16032657}
   - {fileID: 1250763883}
-  m_Father: {fileID: 1910450393}
+  m_Father: {fileID: 288963016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -980}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1549137379
@@ -4746,7 +4748,6 @@ RectTransform:
   - {fileID: 38347160}
   - {fileID: 255880609}
   - {fileID: 288963016}
-  - {fileID: 1549137378}
   m_Father: {fileID: 1248275997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
