@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class SkyShotProjectile : MonoBehaviour
@@ -9,6 +10,9 @@ public class SkyShotProjectile : MonoBehaviour
     private int aoeDamage;
     private float telegraphDuration;
 
+    public event Action OnTelegraphStart;
+    public event Action OnTelegraphEnd;
+
     public void Initialize(float radius, int damage, float duration)
     {
         aoeRadius = radius;
@@ -17,6 +21,8 @@ public class SkyShotProjectile : MonoBehaviour
 
         telegraphVisual.color = Color.red;
         telegraphVisual.transform.localScale = Vector3.one * (aoeRadius * 2f);
+
+        OnTelegraphStart?.Invoke();
 
         StartCoroutine(TelegraphRoutine());
     }
@@ -29,6 +35,8 @@ public class SkyShotProjectile : MonoBehaviour
 
     private void Detonate()
     {
+        OnTelegraphEnd?.Invoke();
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, aoeRadius);
 
         foreach (Collider2D hit in hits)

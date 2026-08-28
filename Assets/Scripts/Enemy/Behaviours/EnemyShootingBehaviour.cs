@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class EnemyShootingBehaviour : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class EnemyShootingBehaviour : MonoBehaviour
     private float cooldownTimer;
     private Collider2D[] collidersToIgnore;
 
+    public event Action OnFire;
 
     public void SetTarget(Transform newTarget)
     {
@@ -56,5 +58,7 @@ public class EnemyShootingBehaviour : MonoBehaviour
         projectile.Launch(direction, projectileSpeed, projectileDamage);
 
         cooldownTimer = cooldownDuration;
+
+        OnFire?.Invoke();
     }
 }

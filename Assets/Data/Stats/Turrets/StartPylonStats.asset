@@ -16,5 +16,5 @@ MonoBehaviour:
   cooldownDuration: 3
   projectileSpeed: 360
   overchargeStacks: 0
-  beamRange: 2
+  beamRange: 6
   beamCount: 1

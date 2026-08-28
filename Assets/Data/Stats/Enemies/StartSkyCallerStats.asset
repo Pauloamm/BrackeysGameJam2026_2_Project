@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 1
   moveSpeed: 3
   contactDamage: 1
-  stopDistance: 2
+  stopDistance: 4
   telegraphDuration: 2
-  aoeRadius: 1
+  aoeRadius: 4
   aoeDamage: 1
   fireCooldown: 3
