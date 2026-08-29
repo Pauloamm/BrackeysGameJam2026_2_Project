@@ -174,7 +174,7 @@ Transform:
   - {fileID: 3873176747089932513}
   - {fileID: 5657181661339775076}
   - {fileID: 4901037127318641052}
-  - {fileID: 1653802533922797291}
+  - {fileID: 1996077614692644041}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &843980451862194749
@@ -523,7 +523,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8956807504534689808, guid: 4cbc5c1d510e6fa4d822499645e97413, type: 3}
   m_PrefabInstance: {fileID: 2610371134422124314}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4580491087799547764
+--- !u!1001 &3661759406508651862
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -533,11 +533,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2982034707261784479, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02907857
+      value: -0.02986857
       objectReference: {fileID: 0}
     - target: {fileID: 2982034707261784479, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.011125714
+      value: -0.0022585713
       objectReference: {fileID: 0}
     - target: {fileID: 2982034707261784479, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
       propertyPath: m_LocalPosition.z
@@ -576,6 +576,10 @@ PrefabInstance:
       value: EnemyHitFlashEffect
       objectReference: {fileID: 0}
     - target: {fileID: 4636652571049502813, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
+      propertyPath: flashSprite
+      value: 
+      objectReference: {fileID: 879022489522245254, guid: 5afe3e7b0eecb1548b04c39a5819b4ed, type: 3}
+    - target: {fileID: 4636652571049502813, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 843980451862194749}
@@ -588,10 +592,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
---- !u!4 &1653802533922797291 stripped
+--- !u!4 &1996077614692644041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2982034707261784479, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
-  m_PrefabInstance: {fileID: 4580491087799547764}
+  m_PrefabInstance: {fileID: 3661759406508651862}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7333478675051645146
 PrefabInstance:

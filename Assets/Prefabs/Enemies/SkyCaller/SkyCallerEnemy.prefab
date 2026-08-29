@@ -761,6 +761,10 @@ PrefabInstance:
       value: EnemyHitFlashEffect
       objectReference: {fileID: 0}
     - target: {fileID: 4636652571049502813, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
+      propertyPath: flashSprite
+      value: 
+      objectReference: {fileID: 1259157424352271802, guid: 396a6dfc7c5f5b649b141088eebff882, type: 3}
+    - target: {fileID: 4636652571049502813, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 6965798046066240604}

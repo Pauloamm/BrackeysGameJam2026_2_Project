@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fa0e63a5dab7349a588438be09a823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHitFlashEffect
-  damageableSource: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  flashDuration: 1
+  flashSprite: {fileID: 0}
+  totalBlinkDuration: 0.2
+  blinkInterval: 0.1
+  damageableSource: {fileID: 0}

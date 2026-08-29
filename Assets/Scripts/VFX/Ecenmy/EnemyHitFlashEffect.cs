@@ -1,52 +1,62 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class EnemyHitFlashEffect : MonoBehaviour
 {
-    [SerializeField] private MonoBehaviour damageableSource;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private float flashDuration = 0.1f;
+    [SerializeField] private Sprite flashSprite;
+    [SerializeField] private float totalBlinkDuration = 1f;
+    [SerializeField] private float blinkInterval = 0.1f;
+    [SerializeField] private MonoBehaviour damageableSource;
 
+    private Sprite originalSprite;
     private IDamageable damageable;
-    private Color originalColor;
-    private Coroutine flashCoroutine;
+    private Coroutine activeFlashCoroutine;
 
     private void Awake()
     {
-        damageable = (IDamageable)damageableSource;
-        originalColor = spriteRenderer.color;
-
-        damageable.OnDamaged += HandleDamaged;
+        damageable = damageableSource as IDamageable;
+        originalSprite = spriteRenderer.sprite;
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        damageable.OnDamaged -= HandleDamaged;
+        if (damageable != null)
+        {
+            damageable.OnDamaged += HandleDamaged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (damageable != null)
+        {
+            damageable.OnDamaged -= HandleDamaged;
+        }
     }
 
     private void HandleDamaged()
     {
-        if (flashCoroutine != null)
+        if (activeFlashCoroutine != null)
         {
-            StopCoroutine(flashCoroutine);
+            StopCoroutine(activeFlashCoroutine);
         }
-
-        flashCoroutine = StartCoroutine(Flash());
+        activeFlashCoroutine = StartCoroutine(FlashRoutine());
     }
 
-    private IEnumerator Flash()
+    private IEnumerator FlashRoutine()
     {
-        spriteRenderer.color = Color.white;
-        yield return new WaitForSeconds(flashDuration);
-        spriteRenderer.color = originalColor;
-        flashCoroutine = null;
-    }
+        int blinkCount = Mathf.Max(1, Mathf.RoundToInt(totalBlinkDuration / blinkInterval));
+        bool showingFlash = false;
 
-    private void OnValidate()
-    {
-        if (damageableSource != null && !(damageableSource is IDamageable))
+        for (int i = 0; i < blinkCount; i++)
         {
-            Debug.LogError($"{nameof(damageableSource)} on {name} must implement IDamageable.", this);
+            showingFlash = !showingFlash;
+            spriteRenderer.sprite = showingFlash ? flashSprite : originalSprite;
+            yield return new WaitForSeconds(blinkInterval);
         }
+
+        spriteRenderer.sprite = originalSprite;
+        activeFlashCoroutine = null;
     }
 }

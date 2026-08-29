@@ -386,7 +386,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2176904467641502589, guid: cf020b11fb60eca4493731e9b92b8f9d, type: 3}
-  m_Color: {r: 1, g: 0.97688305, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -692,6 +692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHitFlashEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 4636652571049502813, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
+      propertyPath: flashSprite
+      value: 
+      objectReference: {fileID: 4979623092841517402, guid: 757c0713d7b21db4d9e4fff727c28457, type: 3}
     - target: {fileID: 4636652571049502813, guid: 0636f80d3d636b7488153c0a521f3501, type: 3}
       propertyPath: spriteRenderer
       value: 

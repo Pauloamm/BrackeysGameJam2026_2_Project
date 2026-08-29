@@ -17,6 +17,6 @@ MonoBehaviour:
   contactDamage: 1
   stopDistance: 4
   telegraphDuration: 2
-  aoeRadius: 4
+  aoeRadius: 1
   aoeDamage: 1
   fireCooldown: 3
