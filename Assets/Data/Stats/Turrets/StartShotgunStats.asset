@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StartShotgunStats
   m_EditorClassIdentifier: Assembly-CSharp::ShotgunStats
   damage: 1
-  cooldownDuration: 4
+  cooldownDuration: 2.5
   projectileSpeed: 2
   overchargeStacks: 0
   pelletCount: 4

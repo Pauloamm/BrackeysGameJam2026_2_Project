@@ -11,13 +11,11 @@ public class EnemyContactDamageBehaviour : MonoBehaviour
         contactDamage = damage;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (!other.CompareTag(playerTag)) return;
 
-
         IDamageable damageable = other.GetComponentInChildren<IDamageable>();
         damageable.TakeDamage(contactDamage);
-
     }
 }

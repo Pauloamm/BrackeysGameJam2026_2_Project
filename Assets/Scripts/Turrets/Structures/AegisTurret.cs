@@ -8,8 +8,6 @@ public class AegisTurret : TurretBase<AegisStats>
 
     protected override void Fire()
     {
-        if (target == null) return;
-
         Vector2 direction = (target.position - firePoint.position).normalized;
 
         AegisOrb orb = Instantiate(orbPrefab, firePoint.position, Quaternion.identity);
@@ -26,6 +24,7 @@ public class AegisTurret : TurretBase<AegisStats>
     private void OnTriggerStay2D(Collider2D other)
     {
         if (!other.CompareTag("Enemy")) return;
+
 
         SetTarget(other.transform);
     }

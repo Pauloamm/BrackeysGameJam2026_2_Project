@@ -11,7 +11,7 @@ public abstract class TurretBase<TStats> : MonoBehaviour
     {
         cooldownTimer -= Time.deltaTime;
 
-        if (cooldownTimer <= 0f)
+        if (cooldownTimer <= 0f && target!=null)
         {
             Fire();
             cooldownTimer = GetCooldownDuration();
